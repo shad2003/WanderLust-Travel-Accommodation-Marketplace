@@ -59,6 +59,8 @@ body{
 .listing-card{
     border: none !important;
     margin-bottom: 2rem;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .card-img-top{
@@ -77,19 +79,24 @@ body{
     opacity: 0;
 }
 .card-img-overlay :hover{
-    opacity: 0.3;
+    opacity: 0.15;
     background-color: white;
 }
 .listing-link{
     text-decoration: none;
 }
-.card-img-overlay{
-    opacity: 0;
+.listing-card:hover{
+    transform: translateY(-4px);
 }
-.card-img-overlay:hover{
-    opacity: 0.3;
-    background-color: white;
+
+.listing-card .card-img-top{
+    transition: transform 0.35s ease;
 }
+
+.listing-card:hover .card-img-top{
+    transform: scale(1.03);
+}
+
 
 /* New page */
 
@@ -114,7 +121,122 @@ body{
     display: flex;
 }
 
-#map{
-    height: 400px;
-    width: 80vh;
+#map {
+  height: 400px;
+  width: 100%;
+  border-radius: 1rem;
+}
+
+/* New style to make responsive */
+
+.listings-row {
+  padding: 0 1rem;
+}
+
+.card-img-top {
+  height: 16rem;
+}
+
+@media (min-width: 768px) {
+  .card-img-top {
+    height: 18rem;
+  }
+}
+
+@media (min-width: 992px) {
+  .card-img-top {
+    height: 20rem;
+  }
+}
+
+@media (max-width: 991px) {
+ .filters {
+    display: flex !important;
+    align-items: center;
+    flex-wrap: nowrap !important;
+    overflow-x: auto !important;
+    gap: 1rem;
+    padding: 0.8rem 0.5rem;
+    margin-bottom: 0.7rem !important;
+    scrollbar-width: none;
+}
+
+.filters::-webkit-scrollbar {
+    display: none;
+}
+  .filter {
+    min-width: 70px !important;
+    text-align: center;
+    margin-right: 0 !important;
+    flex-shrink: 0;
+  }
+
+  .filter p {
+    font-size: 0.7rem;
+    margin-bottom: 0;
+  }
+
+  .tax-toggle {
+    min-width: max-content;
+    margin-left: auto;
+    font-size: 0.8rem;
+    flex-shrink: 0;
+}
+}
+
+@media (max-width: 991px) {
+  .navbar {
+    height: auto;
+    padding: 0.75rem 1rem;
+  }
+
+  .navbar-collapse {
+    background-color: white;
+    padding: 1rem;
+    margin-top: 0.75rem;
+    border-radius: 1rem;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+  }
+
+  .navbar form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .search-input {
+    width: 100%;
+    margin: 0 !important;
+  }
+
+  .btn-search {
+    width: 100%;
+    height: 2.5rem;
+  }
+
+  .navbar-nav {
+    gap: 0.3rem;
+  }
+
+  .navbar-nav .nav-link {
+    padding: 0.35rem 0;
+  }
+
+  .navbar-nav.ms-auto {
+    margin-top: 0.75rem;
+  }
+}
+
+@media (max-width: 767px) {
+  .show-img {
+    height: 16rem;
+    object-fit: cover;
+  }
+}
+
+.btns{
+    display:flex;
+    gap:10px;
+    margin-top:1rem;
 }

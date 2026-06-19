@@ -23,16 +23,35 @@
         .tax-info{
             display: none;
         }
-        .tax-toggle{
-            border: 1px solid black;
-            height: 2.5rem;
-            border-radius: 1rem;
-            padding: 0.5rem;
-            margin-left: 3rem;
-            display: flex;
-            align-items: center;
-            
-        }
+.tax-toggle {
+    border: 1px solid #dddddd;
+    border-radius: 2rem;
+    padding: 0.5rem 1rem;
+    width: fit-content;
+    margin: 1rem auto;
+    background-color: white;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+.tax-toggle .form-switch {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin: 0;
+    padding: 0;
+}
+
+.tax-toggle .form-check-input {
+    width: 2.2rem;
+    height: 1.2rem;
+    margin: 0;
+    cursor: pointer;
+}
+
+.tax-toggle .form-check-label {
+    margin: 0;
+    font-size: 0.9rem;
+    white-space: nowrap;
+}
     </style>
     <div class="filters mb-2">
         <div class="filter">
@@ -79,19 +98,21 @@
         <i class="fa-solid fa-water"></i>
             <p>Riverside</p>
         </div>
-        <div class="tax-toggle" >
-            <div class="form-check-reverse form-switch ">
+
+    </div>
+            <div class="tax-toggle" >
+            <div class="form-check form-switch d-flex align-items-center gap-2">
                 <input class="form-check-input" type="checkbox" role="switch" id="switchCheckDefault">
-                <label class="form-check-label" for="switchCheckDefault">Display total after taxes</label>
+                <label class="form-check-label" for="switchCheckDefault">Show taxes</label>
             </div>
         </div>
-    </div>
 
-    <div class="row row-cols-lg-3  row-cols-md-2 row-cols-sm-1 ">
+    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4 listings-row">
          <%for( let listing of allListings){ %>
+            <div class="col">
           <a href="/listings/<%=listing._id%>" class="listing-link">
         <div class="card listing-card" >
-        <img src="<%= listing.image.url%>" class="card-img-top" alt="listing_image" style="height: 20rem;" >
+        <img src="<%= listing.image.url%>" class="card-img-top" alt="listing_image" >
          <div class="card-img-overlay"></div>     <!--to write anything on image -->
      <div class="card-body">
         <p class="card-text">
@@ -102,9 +123,10 @@
     </div>
    </div>
    </a>
-  
-        <%  } %>
+  </div>
+      <%  } %>  
     </div>
+    
 
     <script>
         let taxSwitch = document.getElementById("switchCheckDefault");
